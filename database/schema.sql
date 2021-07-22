@@ -8,11 +8,11 @@ create schema "public";
 
 CREATE TABLE "users" (
 	"userId" serial NOT NULL,
-	"firstName" TEXT NOT NULL,
-	"lastName" TEXT NOT NULL,
+	"firstName" TEXT,
+	"lastName" TEXT,
 	"email" TEXT,
 	"password" TEXT,
-	"gamerTag" TEXT NOT NULL,
+	"gamerTag" TEXT,
 	"picture" TEXT,
 	CONSTRAINT "users_pk" PRIMARY KEY ("userId")
 ) WITH (
