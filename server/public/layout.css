@@ -1,0 +1,93 @@
+#root {
+  background-color: #18191a;
+}
+
+.navbar {
+  display: flex;
+  background-color: #252526;
+}
+
+ul {
+  flex: 1;
+  text-align: right;
+}
+
+li {
+  padding: 10px 10px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+.postBtn {
+  color: white;
+  font-size: 2rem;
+}
+
+.desktopView a {
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  right: 10%;
+}
+
+.mobileView {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar .desktopView {
+    display: none;
+  }
+
+  .mobileView {
+    color: white;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    display: flex;
+    background-color: black;
+    width: 100%;
+    left: 0;
+  }
+
+  .mobileView a {
+    color: white;
+    width: 10px;
+    font-size: 2rem;
+    padding: 10px 25px;
+  }
+}
+
+.feed-header {
+  padding-top: 1rem;
+  color: white;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 5rem;
+}
+
+.feed {
+  color: white;
+  font-family: 'VT323', monospace;
+  justify-content: center;
+  text-align: center;
+}
+
+.posting {
+  border: 1px solid #4f4f4f;
+  width: 50%;
+  background-color: #252526;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  position: relative;
+  left: 47%;
+  transform: translateX(-50%);
+}
+
+.gamerTag,
+.description {
+  text-align: left;
+}
