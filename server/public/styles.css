@@ -25,11 +25,9 @@
   border-radius: 12px;
 }
 
-
-
-/* textarea {
-
-} */
+textarea {
+  width: 80%;
+}
 
 .newPostHeader {
   color: white;
@@ -38,13 +36,19 @@
 }
 
 .form-container {
-  padding-top: 2rem;
+  position: relative;
+  top: 6rem;
   text-align: center;
   margin-top: 2rem;
   border: 1px solid grey;
   border-radius: 12px;
-  width: 1000px;
-  position: relative;
+  width: 900px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 800px) {
+  .form-container {
+    width: 85%;
+  }
 }

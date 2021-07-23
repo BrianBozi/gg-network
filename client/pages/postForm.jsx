@@ -26,18 +26,15 @@ export default class NewPost extends React.Component {
       headers: { 'Content-Type': 'application/json; charset=UTF-8' }
     })
 
-    // reciept of what was sent
-      .then(res => res.json());
-    // .then(post => console.log('post:'.post));
-    // const newDesc = {
-    //   description: this.state.description
-    // };
-    // this.props.onSubmit(newDesc);
-    // this.setState({ description: '' });
+    // reciept of what was sent after the fetch
+      .then(res => res.json())
+      .then(post => {
+        window.location.href = '#';
+      });
+
   }
 
   render() {
-    // console.log(this.state);
     return (
       <div className="form-container">
         <h3 className="newPostHeader">New Post</h3>

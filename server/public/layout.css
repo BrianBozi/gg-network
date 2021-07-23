@@ -1,11 +1,31 @@
-#root {
+html {
   background-color: #18191a;
-  height: 100vh;
+}
+
+.container {
+  max-width: none;
 }
 
 .navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  height: 4.5rem;
   display: flex;
   background-color: #252526;
+  overflow: hidden;
+  margin-bottom: 1000px;
+  border-bottom: 1px solid rgb(87, 86, 86);
+}
+
+.logo {
+  padding-left: 2rem;
+  position: relative;
+  bottom: 3.6rem;
+  font-size: 4rem;
+  color: white;
+  font-family: 'VT323', monospace;
 }
 
 ul {
@@ -22,15 +42,22 @@ nav ul li {
 }
 
 .postBtn {
+  position: relative;
+  top: 1.6rem;
+  right: 1rem;
   color: white;
   font-size: 2rem;
+}
+
+.desktopView {
+  position: relative;
+  right: 1.5rem;
 }
 
 .desktopView a {
   color: white;
   font-size: 2rem;
   position: relative;
-  right: 10%;
 }
 
 .mobileView {
@@ -46,11 +73,13 @@ nav ul li {
     color: white;
     position: fixed;
     bottom: 0;
-    justify-content: center;
+    justify-content: space-around;
     display: flex;
     background-color: black;
     width: 100%;
     left: 0;
+    z-index: 1;
+    margin-bottom: 0;
   }
 
   .mobileView a {
@@ -59,17 +88,26 @@ nav ul li {
     font-size: 2rem;
     padding: 10px 25px;
   }
+
+  .postBtn {
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+  }
 }
 
 .feed-header {
-  padding-top: 1rem;
+  padding-top: 3rem;
   color: white;
   text-align: center;
   font-family: 'VT323', monospace;
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .feed {
+  margin-bottom: 5rem;
+  padding: 0;
+  list-style-type: none;
   color: white;
   font-family: 'VT323', monospace;
   justify-content: center;
@@ -84,11 +122,17 @@ nav ul li {
   margin-bottom: 1.5rem;
   list-style: none;
   position: relative;
-  left: 47%;
+  left: 50%;
   transform: translateX(-50%);
 }
 
 .gamerTag,
 .description {
   text-align: left;
+}
+
+@media only screen and (max-width: 800px) {
+  .posting {
+    width: 95%;
+  }
 }
