@@ -1,20 +1,50 @@
 /* form */
+.row {
+  display: flex;
+}
+
+.col-half {
+  padding-top: 2rem;
+  flex-basis: 50%;
+}
+
+.submit {
+  position: relative;
+  bottom: 1.3rem;
+  color: white;
+  background-color: rgb(0, 182, 0);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+}
 
 .cancel {
   text-decoration: none;
+  color: white;
+  background-color: red;
+  padding: 1rem 2rem;
+  border-radius: 12px;
 }
 
-.form-container {
-  padding-top: 2rem;
-  text-align: center;
-}
 
-textarea {
-  width: 1000px;
-}
+
+/* textarea {
+
+} */
 
 .newPostHeader {
   color: white;
   font-family: 'VT323', monospace;
   font-size: 4rem;
+}
+
+.form-container {
+  padding-top: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border: 1px solid grey;
+  border-radius: 12px;
+  width: 1000px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
