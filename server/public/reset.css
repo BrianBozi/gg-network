@@ -5,3 +5,12 @@
 body {
   margin: 0;
 }
+
+.row {
+  display: flex;
+}
+
+.col-half {
+  padding-top: 2rem;
+  flex-basis: 40%;
+}
