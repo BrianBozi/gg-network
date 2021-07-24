@@ -39,6 +39,9 @@ export default class NewPost extends React.Component {
       <div className="form-container">
         <h3 className="newPostHeader">New Post</h3>
       <form action="" onSubmit={this.handleSubmit}>
+        <div className="fileUpload">
+          <input type="file" name="image"/>
+        </div>
         <textarea required name="" id="" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>
         <div>
           <div className="row">
