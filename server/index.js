@@ -4,6 +4,7 @@ const pg = require('pg');
 const jsonMiddleWare = express.json();
 const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
+const uploadsMiddleware = require('./uploads-middleware');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -24,6 +25,7 @@ app.get('/api/feed', (req, res) => {
   select
       "postId",
       "gamerTag",
+      "photo",
       "description"
       from "posts"
       join "users" using ("userId");
@@ -39,7 +41,7 @@ app.get('/api/feed', (req, res) => {
     });
 });
 
-app.post('/api/feed/post', (req, res) => {
+app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
   const { description } = req.body;
   // console.log('description:', description);
   if (!description) {
@@ -50,17 +52,19 @@ app.post('/api/feed/post', (req, res) => {
   }
   // I AM USING VALUE 2 AS A PLACE HOLDER FOR TESTING TO SEE IF THE POSTING WILL WORK
   const sql = `
-  insert into "posts" ("description", "userId")
-  values ($1, 2)
+  insert into "posts" ("description", "photo", "userId")
+  values ($1, $2, 1)
   returning *
   `;
   // YES BRIAN THE @ ABOVE HERE!!!!
-  const params = [description];
+  const params = [description, `/images/${req.file.filename}`];
   db.query(sql, params)
     .then(result => {
       const [post] = result.rows;
       res.status(201).json(post);
-    });
+    })
+    .catch(next());
+
 });
 
 app.use(errorMiddleware);

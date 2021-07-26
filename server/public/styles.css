@@ -60,3 +60,8 @@ textarea {
   margin-bottom: 2rem;
   color: white;
 }
+
+/* feedPhoto */
+.userPostImg {
+  width: 100%;
+}
