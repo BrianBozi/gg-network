@@ -41,6 +41,27 @@ app.get('/api/feed', (req, res) => {
     });
 });
 
+// user profile
+app.get('/api/feed/profile', (req, res, next) => {
+  const sql = `
+  select
+      "postId",
+      "gamerTag",
+      "photo",
+      "description"
+      from "posts"
+      join "users" using ("userId")
+      WHERE "userId" = '1';
+  `;
+
+  db.query(sql)
+    .then(result => {
+      res.json(result.rows);
+    }
+    );
+
+});
+
 app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
   const { description } = req.body;
   // console.log('description:', description);
