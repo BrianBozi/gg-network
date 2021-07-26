@@ -107,16 +107,14 @@ nav ul li {
 .feed {
   margin-bottom: 5rem;
   padding: 0;
-  list-style-type: none;
   color: white;
   font-family: 'VT323', monospace;
   justify-content: center;
-  text-align: center;
 }
 
 .posting {
   border: 1px solid #4f4f4f;
-  width: 50%;
+  width: 30%;
   background-color: #252526;
   border-radius: 12px;
   margin-bottom: 1.5rem;
@@ -129,6 +127,15 @@ nav ul li {
 .gamerTag,
 .description {
   text-align: left;
+  font-size: 1.5rem;
+}
+
+.gamerTag {
+  margin: 0.5rem 0;
+}
+
+.description {
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 800px) {

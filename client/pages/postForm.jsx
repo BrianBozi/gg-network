@@ -13,24 +13,38 @@ export default class NewPost extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({
-      description: event.target.value
-    });
+    // this.setState({
+    //   description: event.target.value
+    // });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    const data = new FormData(event.target);
+
     fetch('/api/feed/post', {
       method: 'POST',
-      body: JSON.stringify({ description: this.state.description }),
-      headers: { 'Content-Type': 'application/json; charset=UTF-8' }
+      body: data
     })
-
-    // reciept of what was sent after the fetch
-      .then(res => res.json())
+      .then(result => {
+        // console.log('result:', result.json());
+        event.target.reset();
+      })
       .then(post => {
         window.location.href = '#';
-      });
+      })
+      .catch(err => console.error(err));
+    // fetch('/api/feed/post', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ description: this.state.description }),
+    //   headers: { 'Content-Type': 'application/json; charset=UTF-8' }
+    // })
+
+    // reciept of what was sent after the fetch
+    // .then(res => res.json())
+    // .then(post => {
+    //   window.location.href = '#';
+    // });
 
   }
 
@@ -39,7 +53,10 @@ export default class NewPost extends React.Component {
       <div className="form-container">
         <h3 className="newPostHeader">New Post</h3>
       <form action="" onSubmit={this.handleSubmit}>
-        <textarea required name="" id="" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>
+        <div className="fileUpload" name="photo">
+          <input type="file" name="image"/>
+        </div>
+          <textarea required name="description" id="description" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>
         <div>
           <div className="row">
           <div className="col-half">

@@ -52,3 +52,16 @@ textarea {
     width: 85%;
   }
 }
+
+.fileUpload {
+  text-align: left;
+  position: relative;
+  left: 5.5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+/* feedPhoto */
+.userPostImg {
+  width: 100%;
+}
