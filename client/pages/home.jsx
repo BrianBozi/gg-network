@@ -23,6 +23,7 @@ export default class Home extends React.Component {
 
   render() {
     const { posts } = this.state;
+    // console.log('homepage', posts);
 
     return (
       <>
