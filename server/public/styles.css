@@ -65,3 +65,54 @@ textarea {
 .userPostImg {
   width: 100%;
 }
+
+/* user profile */
+.profileContainer {
+  margin-top: 6rem;
+  width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.userImage {
+  border: 1px grey solid;
+  border-radius: 50%;
+  width: 10%;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userName {
+  color: white;
+  font-family: 'VT323', monospace;
+  border-bottom: 1px solid grey;
+  justify-content: center;
+}
+
+.userAccFeed {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.accPost {
+  margin: 2rem 0.5rem;
+  border: 1px solid grey;
+  background-color: #252526;
+  border-radius: 7px;
+  width: 333px;
+}
+
+.description {
+  color: white;
+  font-family: 'VT323', monospace;
+}
+
+@media only screen and (max-width: 800px) {
+  .userImage {
+    width: 20%;
+  }
+}

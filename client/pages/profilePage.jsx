@@ -5,7 +5,7 @@ export default class Profile extends React.Component {
     super(props);
 
     this.state = {
-      userPosts: []
+      posts: []
     };
 
   }
@@ -23,19 +23,34 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    // const { posts } = this.state;
-    // console.log('posts', posts);
+
+    const { posts } = this.state;
+    // console.log('Post at 0', posts[0]);
+
+    // if (!this.state.posts.length) {
+    //   return <h2>yup were waiting</h2>;
+    // } else {
+    //   return <h2>{this.state.posts[0].gamerTag}</h2>;
+    // }
 
     return (
       <div className="profileContainer">
       <div className="user">
         <div className="row">
-          <img src="" alt="" />
+          <img src="/images/boruto.jpeg" alt="" className="userImage" />
         </div>
-        <div className="row">
-          <h2></h2>
+        <div className="row userName">
+            <h2>{(!this.state.posts.length) ? 'Loading...' : this.state.posts[0].gamerTag}</h2>
           </div>
-          <ul>
+          <ul className="userAccFeed">
+            {
+              posts.reverse().map(post => (
+                <li key={post.postId} className="accPost">
+                  <img src={post.photo} alt="" className="userPostImg" />
+                  <p className="description">{post.description}</p>
+                </li>
+              ))
+            }
           </ul>
         </div>
         </div>
