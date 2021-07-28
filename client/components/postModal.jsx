@@ -10,17 +10,6 @@ class Modal extends React.Component {
     this.delete = this.delete.bind(this);
   }
 
-  getPosts() {
-    fetch('/api/feed/profile')
-      .then(res => res.json())
-      .then(posts => {
-        this.setState({
-          posts: posts,
-          items: posts
-        });
-      });
-  }
-
   delete() {
     this.setState({
       firstModal: false
@@ -34,29 +23,31 @@ class Modal extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(id)
     })
-      .then(res => res.json);
-    // .then(post => {
-    // });
+      .then(res => {
+        this.props.getPosts();
+        this.props.close();
+      });
   }
 
   render() {
+    if (!this.props.active) return null;
+
     if (this.state.firstModal) {
       return (
         <div className="modal" onClick={this.props.close}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <div className="row">
-              <div className="col-half">
+            <div className="">
+              <div className="col-half image-side">
                 <img className="modal-photo" src={this.props.active.photo} alt="" />
               </div>
-              <div className="col-half">
+              <div className="col-half text-side">
                 <h2>{this.props.active.description}</h2>
-
               </div>
             </div>
             <div className="">
             </div>
             <div>
-              <a onClick={this.delete}>DELETE</a>
+              <a onClick={this.delete} className="delete">DELETE</a>
             </div>
             <div className="text-right modal-btns">
               <button className="btn btn-red" onClick={this.props.close}>Cancel</button>
@@ -68,12 +59,19 @@ class Modal extends React.Component {
     } else {
       return (
       <div className="modal" onClick={this.props.close}>
-        <div className="modal-content" onClick={e => e.stopPropagation()}>
-          <div className="row">
-            <p style={{ fontSize: '36px' }}>ARE YOU SURE YOU WANT TO DELETE</p>
+        <div className="modal-content delete-modal" onClick={e => e.stopPropagation()}>
+
+            <h2 className="deleteText">ARE YOU SURE YOU WANT TO DELETE</h2>
+            <div className="row">
+              <div className="col-half">
             <button className="btn btn-red" onClick={this.props.close}>Cancel</button>
+              </div>
+              <div className="col-half">
             <button className="btn btn-green" onClick={() => { this.delePost(); this.props.close(); }}>Accept</button>
-          </div>
+              </div>
+
+            </div>
+
         </div>
       </div>);
     }

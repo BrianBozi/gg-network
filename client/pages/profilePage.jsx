@@ -10,10 +10,9 @@ export default class Profile extends React.Component {
       activeItem: null,
       modalOn: false
     };
-    // this.clickedOn = this.clickedOn.bind(this);
-    // this.toggleModal = this.toggleModal.bind(this);
     this.modalAccept = this.modalAccept.bind(this);
     this.modalClose = this.modalClose.bind(this);
+    this.getPosts = this.getPosts.bind(this);
 
   }
 
@@ -32,11 +31,6 @@ export default class Profile extends React.Component {
       });
   }
 
-  // clickedOn(event, id) {
-  //   console.log('clicked on ', event.target.id);
-  //   // this.renderModal(id)
-  // }
-
   setActive(item) {
     this.setState({
       activeItem: item,
@@ -45,36 +39,22 @@ export default class Profile extends React.Component {
   }
 
   modalClose() {
-    this.setState({ modalOn: false });
+    this.setActive(null);
   }
 
-  // deleteModal(item) {
-  //   this.setState({
-  //     deleteItem: item
-  //   });
-  // }
-
-  // deleteConfirm() {
-  //   console.log('Active Item:', this.state.activeItem);
-  //   this.setActive(null);
-  // }
-
   modalAccept() {
-    // console.log('Active Item:', this.state.activeItem);
     this.setActive(null);
   }
 
   render() {
     const { posts } = this.state;
 
-    // this.componentDidMount();
     return (
-    // return this.state.renderModal : HTML FOR MODAL ?
-
+      <>
       <div className="profileContainer">
       <div className="user">
         <div className="row">
-          <img src="/images/boruto.jpeg" alt="" className="userImage" />
+            <img src="images/image-1627260855488.jpeg" alt="" className="userImage" />
         </div>
         <div className="row userName">
             <h2>{(!this.state.posts.length) ? 'Loading...' : this.state.posts[0].gamerTag}</h2>
@@ -93,8 +73,9 @@ export default class Profile extends React.Component {
             }
           </ul>
         </div>
-        {!this.state.modalOn ? '' : <Modal active={this.state.activeItem} accept={this.modalAccept} close={() => this.modalClose()} />}
         </div>
+        <Modal active={this.state.activeItem} accept={this.modalAccept} close={() => this.modalClose()} getPosts={this.getPosts} />
+        </>
     );
   }
 }
