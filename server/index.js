@@ -20,7 +20,7 @@ app.use(staticMiddleware);
 app.use(staticMiddleware);
 app.use(jsonMiddleWare);
 
-app.get('/api/feed', (req, res) => {
+app.get('/api/feed', (req, res, next) => {
   const sql = `
   select
       "postId",
@@ -35,9 +35,7 @@ app.get('/api/feed', (req, res) => {
     .then(result => {
       // console.log('db results :', result);
       const posts = result.rows;
-
       res.json(posts);
-
     });
 });
 
@@ -85,6 +83,25 @@ app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
       res.status(201).json(post);
     })
     .catch(next());
+
+});
+
+app.delete('/api/feed/profile/post', (req, res, next) => {
+  const post = parseInt(req.body.postId);
+
+  const sql = `
+  delete from "posts"
+    where "postId" = $1
+    returning *
+  `
+  ;
+
+  const params = [post];
+  db.query(sql, params)
+    .then(result => {
+      res.sendStatus(204);
+    })
+    .catch(err => next(err));
 
 });
 

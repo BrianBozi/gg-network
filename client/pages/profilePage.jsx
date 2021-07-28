@@ -1,12 +1,18 @@
 import React from 'react';
+import Modal from '../components/postModal';
 
 export default class Profile extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      posts: []
+      posts: [],
+      activeItem: null,
+      modalOn: false
     };
+    this.modalAccept = this.modalAccept.bind(this);
+    this.modalClose = this.modalClose.bind(this);
+    this.getPosts = this.getPosts.bind(this);
 
   }
 
@@ -18,26 +24,37 @@ export default class Profile extends React.Component {
     fetch('/api/feed/profile')
       .then(res => res.json())
       .then(posts => {
-        this.setState({ posts: posts });
+        this.setState({
+          posts: posts,
+          items: posts
+        });
       });
   }
 
+  setActive(item) {
+    this.setState({
+      activeItem: item,
+      modalOn: true
+    });
+  }
+
+  modalClose() {
+    this.setActive(null);
+  }
+
+  modalAccept() {
+    this.setActive(null);
+  }
+
   render() {
-
     const { posts } = this.state;
-    // console.log('Post at 0', posts[0]);
-
-    // if (!this.state.posts.length) {
-    //   return <h2>yup were waiting</h2>;
-    // } else {
-    //   return <h2>{this.state.posts[0].gamerTag}</h2>;
-    // }
 
     return (
+      <>
       <div className="profileContainer">
       <div className="user">
         <div className="row">
-          <img src="/images/boruto.jpeg" alt="" className="userImage" />
+            <img src="images/image-1627260855488.jpeg" alt="" className="userImage" />
         </div>
         <div className="row userName">
             <h2>{(!this.state.posts.length) ? 'Loading...' : this.state.posts[0].gamerTag}</h2>
@@ -45,15 +62,20 @@ export default class Profile extends React.Component {
           <ul className="userAccFeed">
             {
               posts.reverse().map(post => (
-                <li key={post.postId} className="accPost">
-                  <img src={post.photo} alt="" className="userPostImg" />
-                  <p className="description">{post.description}</p>
+                <li key={post.postId} className="accPost" id={post.postId} onClick={this.clickedOn} >
+                  <div className="row" >
+                    <span className="iconify editBtn" data-icon="akar-icons:edit" data-inline="false" id={post.postId} ></span>
+                    </div>
+                  <img src={post.photo} alt="" className="userPostImg" onClick={() => this.setActive(post)} id={post.postId} />
+                  <p className="description">{post.description}  {post.postId}</p>
                 </li>
               ))
             }
           </ul>
         </div>
         </div>
+        <Modal active={this.state.activeItem} accept={this.modalAccept} close={() => this.modalClose()} getPosts={this.getPosts} />
+        </>
     );
   }
 }
