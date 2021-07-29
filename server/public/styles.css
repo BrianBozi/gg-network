@@ -274,3 +274,16 @@ textarea {
   text-decoration: none;
   color: white;
 }
+
+.searchBar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.5rem;
+  z-index: 1;
+}
+
+.search {
+  width: 450px;
+  height: 2rem;
+}
