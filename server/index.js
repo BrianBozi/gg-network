@@ -1,4 +1,4 @@
-// require('dotenv/config');
+require('dotenv/config');
 // const { parse } = require('dotenv');
 const express = require('express');
 const pg = require('pg');
@@ -88,9 +88,11 @@ app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
 });
 
 // using put since itll replace it and keep the same spot on the feed instead of jumoping up
-app.put('/api/feed/profile/post', (req, res, next) => {
+app.put('/api/feed/profile/posts', (req, res, next) => {
   const postId = parseInt(req.body.postId);
   const postDesc = req.body.description;
+
+  // console.log('postID', postId);
 
   if (postId < 0) {
     res.status(400).json({
@@ -106,10 +108,10 @@ app.put('/api/feed/profile/post', (req, res, next) => {
 `;
 
   const params = [postDesc, postId];
-
   db.query(sql, params)
+
     .then(result => {
-      const [post] = result.json;
+      const [post] = result.rows;
       if (!post) {
         res.status(404).json({ error: `cannot find todo with postId ${postId}` });
         return;
