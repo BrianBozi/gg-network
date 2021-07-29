@@ -269,3 +269,8 @@ textarea {
     margin-right: 15%;
   }
 }
+
+.profileName {
+  text-decoration: none;
+  color: white;
+}
