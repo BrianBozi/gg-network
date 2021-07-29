@@ -44,7 +44,6 @@ app.get('/api/feed', (req, res, next) => {
 // get for users profiles
 app.get('/api/profile/:userId', (req, res, next) => {
   const id = parseInt(req.params.userId);
-  // console.log('LOKOKOKOKOK', id);
 
   if (!id) {
     throw new ClientError(400, 'productId must be a positive integer');
@@ -63,11 +62,9 @@ app.get('/api/profile/:userId', (req, res, next) => {
   `;
 
   const params = [id];
-  // console.log('PARAMS', params);
 
   db.query(sql, params)
     .then(result => {
-      // console.log('db results :', result);
       const posts = result.rows;
       res.json(posts);
     });
