@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from './search';
 
 class Navbar extends React.Component {
 
@@ -7,6 +8,7 @@ class Navbar extends React.Component {
       <div className="container">
         <nav className="navbar">
           <h1 className="logo">GG👾</h1>
+          <SearchBar />
           <ul className="desktopView">
             <li><a href=""><span className="iconify" data-icon="el:search-alt" data-inline="false"></span></a></li>
             <li><a href="#"><span className="iconify" data-icon="ant-design:home-filled" data-inline="false"></span> </a></li>
