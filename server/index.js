@@ -6,6 +6,7 @@ const jsonMiddleWare = express.json();
 const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
 const uploadsMiddleware = require('./uploads-middleware');
+const ClientError = require('./client-error');
 
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -27,12 +28,44 @@ app.get('/api/feed', (req, res, next) => {
       "postId",
       "gamerTag",
       "photo",
+      "userId",
       "description"
       from "posts"
       join "users" using ("userId");
   `;
 
   db.query(sql)
+    .then(result => {
+      const posts = result.rows;
+      res.json(posts);
+    });
+});
+
+// get for users profiles
+app.get('/api/profile/:userId', (req, res, next) => {
+  const id = parseInt(req.params.userId);
+  // console.log('LOKOKOKOKOK', id);
+
+  if (!id) {
+    throw new ClientError(400, 'productId must be a positive integer');
+  }
+
+  const sql = `
+  select
+      "postId",
+      "gamerTag",
+      "photo",
+      "userId",
+      "description"
+      from "posts"
+      join "users" using ("userId")
+      where "userId" = $1;
+  `;
+
+  const params = [id];
+  // console.log('PARAMS', params);
+
+  db.query(sql, params)
     .then(result => {
       // console.log('db results :', result);
       const posts = result.rows;
