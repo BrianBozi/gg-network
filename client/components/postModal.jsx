@@ -4,10 +4,13 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstModal: true
+      firstModal: true,
+      description: ''
     };
 
     this.delete = this.delete.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.editPost = this.editPost.bind(this);
   }
 
   delete() {
@@ -29,11 +32,34 @@ class Modal extends React.Component {
       });
   }
 
+  handleChange(event) {
+    this.setState({ description: event.target.value });
+  }
+
+  editPost() {
+    event.preventDefault();
+    const id = parseInt(this.props.active.postId);
+    const data = this.state.description;
+
+    const update = { postId: id, description: data };
+
+    fetch('/api/feed/profile/posts', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(update)
+    })
+      .then(res => {
+        this.props.getPosts();
+        this.props.close();
+      });
+  }
+
   render() {
     if (!this.props.active) return null;
 
     if (this.state.firstModal) {
       return (
+        <form action="" onSubmit={this.editPost}>
         <div className="modal" onClick={this.props.close}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="">
@@ -41,20 +67,23 @@ class Modal extends React.Component {
                 <img className="modal-photo" src={this.props.active.photo} alt="" />
               </div>
               <div className="col-half text-side">
-                <h2>{this.props.active.description}</h2>
+
+                <textarea name="description" className="modalEditTextArea" id="description" cols="30" rows="10" defaultValue={this.props.active.description} onChange={this.handleChange}></textarea>
+                {/* <h2>{this.props.active.description}</h2> */}
               </div>
             </div>
-            <div className="">
+            <div>
             </div>
             <div>
               <a onClick={this.delete} className="delete">DELETE</a>
             </div>
             <div className="text-right modal-btns">
               <button className="btn btn-red" onClick={this.props.close}>Cancel</button>
-              <button className="btn btn-green" onClick={this.props.accept}>Accept</button>
+              <button type="submit" className="btn btn-green" >Accept</button>
             </div>
           </div>
         </div>
+        </form>
       );
     } else {
       return (
