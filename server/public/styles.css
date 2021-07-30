@@ -115,6 +115,15 @@ textarea {
   .userImage {
     width: 20%;
   }
+
+  .userAccFeed {
+    padding: 0;
+  }
+
+  .accPost {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
 }
 
 .editBtn {
@@ -172,7 +181,7 @@ textarea {
 }
 
 .modal-content {
-  background-color: #0d0d0d;
+  background-color: #090909;
   border: 1px solid grey;
   border-radius: 12px;
   margin: auto;
@@ -264,10 +273,6 @@ textarea {
     width: 100%;
     margin-left: 0;
   }
-
-  .accPost {
-    margin-right: 15%;
-  }
 }
 
 .profileName {
@@ -286,4 +291,25 @@ textarea {
 .search {
   width: 450px;
   height: 2rem;
+}
+
+.search-button {
+  border: 1px red solid;
+}
+
+.dropDown {
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.5rem;
+
+  /* z-index: 1;
+  }
+
+
+
+
+  /* in the app component, the state listens
+   */
 }

@@ -22,6 +22,7 @@ app.use(staticMiddleware);
 app.use(staticMiddleware);
 app.use(jsonMiddleWare);
 
+// feed
 app.get('/api/feed', (req, res, next) => {
   const sql = `
   select
@@ -66,6 +67,25 @@ app.get('/api/profile/:userId', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       const posts = result.rows;
+      res.json(posts);
+    });
+});
+
+// liveSeach
+app.get('/api/feed/search', (req, res, next) => {
+  const sql = `
+  select
+      "gamerTag",
+
+      "firstName",
+      "userId"
+      from "users";
+  `;
+
+  db.query(sql)
+    .then(result => {
+      const posts = result.rows;
+
       res.json(posts);
     });
 });
