@@ -5,6 +5,8 @@ import Profile from './pages/profilePage';
 import Profiles from './pages/profiles';
 import PostForm from './pages/postForm';
 import parseRoute from './lib/parse-route.js';
+// import { load } from 'dotenv';
+// import Code from './components/easterEgg';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,6 +14,7 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash)
     };
+
   }
 
   componentDidMount() {
@@ -22,6 +25,21 @@ export default class App extends React.Component {
   }
 
   renderPage() {
+    const audio = new Audio('/easteregg/contra.mp3');
+    const pressed = [];
+    const code = 'uuddlrlrba';
+
+    window.addEventListener('keyup', e => {
+      pressed.push(e.key);
+      pressed.splice(-code.length - 1, pressed.length - code.length);
+      // console.log('pressed', pressed);
+      if (pressed.join('').includes(code)) {
+        audio.play();
+        alert('Konami Code - 1986');
+
+      }
+    });
+
     const { route } = this.state;
     if (route.path === '') {
       return <Home />;
@@ -41,6 +59,7 @@ export default class App extends React.Component {
   render() {
     return (
     <>
+
     <Navbar />
     { this.renderPage() }
     </>
