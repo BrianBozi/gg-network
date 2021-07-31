@@ -61,7 +61,7 @@ export default class Profile extends React.Component {
           </div>
           <ul className="userAccFeed">
             {
-              posts.reverse().map(post => (
+              posts.map(post => (
                 <li key={post.postId} className="accPost" id={post.postId} onClick={this.clickedOn} >
                   <div className="row" >
                     <span className="iconify editBtn" data-icon="akar-icons:edit" data-inline="false" id={post.postId} ></span>

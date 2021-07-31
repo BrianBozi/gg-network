@@ -83,7 +83,7 @@ class Modal extends React.Component {
               <a onClick={this.delete} className="delete">DELETE</a>
             </div>
             <div className="text-right modal-btns">
-              <button className="btn btn-red" onClick={this.props.close}>Cancel</button>
+              <button type="button" className="btn btn-red" onClick={this.props.close}>Cancel</button>
               <button type="submit" className="btn btn-green" >Accept</button>
             </div>
           </div>

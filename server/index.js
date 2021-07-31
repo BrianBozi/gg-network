@@ -100,7 +100,8 @@ app.get('/api/feed/profile', (req, res, next) => {
       "description"
       from "posts"
       join "users" using ("userId")
-      WHERE "userId" = '1';
+      WHERE "userId" = '1'
+      order by "postId" desc;
   `;
 
   db.query(sql)
