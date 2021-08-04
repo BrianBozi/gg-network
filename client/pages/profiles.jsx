@@ -23,7 +23,7 @@ export default class Profiles extends React.Component {
         <div className="profileContainer">
           <div className="user">
             <div className="row">
-              <img src="images/image-1627260855488.jpeg" alt="" className="userImage" />
+              <img src="images/boruto.jpeg" alt="" className="userImage" />
             </div>
             <div className="row userName">
               <h2>{(!this.state.posts.length) ? 'Loading...' : this.state.posts[0].gamerTag}</h2>

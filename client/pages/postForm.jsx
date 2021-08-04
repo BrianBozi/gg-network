@@ -13,9 +13,9 @@ export default class NewPost extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({
-      description: event.target.value
-    });
+    // this.setState({
+    //   description: event.target.value
+    // });
   }
 
   handleSubmit(event) {

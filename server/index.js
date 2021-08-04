@@ -32,7 +32,9 @@ app.get('/api/feed', (req, res, next) => {
       "userId",
       "description"
       from "posts"
-      join "users" using ("userId");
+      join "users" using ("userId")
+      order by "postId" desc;
+
   `;
 
   db.query(sql)
@@ -114,36 +116,30 @@ app.get('/api/feed/profile', (req, res, next) => {
 
 app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
   const { description } = req.body;
-  // console.log('description:', description);
   if (!description) {
     res.status(400).json({
       error: 'description needs to be filled out'
     });
     res.json({ description: 'this is working' });
   }
-  // I AM USING VALUE 1 AS A PLACE HOLDER FOR TESTING TO SEE IF THE POSTING WILL WORK
   const sql = `
   insert into "posts" ("description", "photo", "userId")
   values ($1, $2, 1)
   returning *
   `;
-  // YES BRIAN THE @ ABOVE HERE!!!!
   const params = [description, `/images/${req.file.filename}`];
   db.query(sql, params)
     .then(result => {
       const [post] = result.rows;
-      res.status(201).json(post);
+      res.json(post);
     })
     .catch(next());
 
 });
 
-// using put since itll replace it and keep the same spot on the feed instead of jumoping up
 app.put('/api/feed/profile/posts', (req, res, next) => {
   const postId = parseInt(req.body.postId);
   const postDesc = req.body.description;
-
-  // console.log('postID', postId);
 
   if (postId < 0) {
     res.status(400).json({
@@ -175,6 +171,9 @@ app.put('/api/feed/profile/posts', (req, res, next) => {
 
 app.delete('/api/feed/profile/post', (req, res, next) => {
   const post = parseInt(req.body.postId);
+  if (post < 0 || !Number.isInteger(post)) {
+    res.status(400).json({ error: 'postId must be a positive number' });
+  }
 
   const sql = `
   delete from "posts"
@@ -186,7 +185,12 @@ app.delete('/api/feed/profile/post', (req, res, next) => {
   const params = [post];
   db.query(sql, params)
     .then(result => {
-      res.sendStatus(204);
+      const [post] = result.rows;
+      if (!post) {
+        throw new ClientError(404, 'cannot find post');
+      } else {
+        res.sendStatus(204);
+      }
     })
     .catch(err => next(err));
 

@@ -16,7 +16,8 @@ values
 ('No commentent needed', '/images/splitgate2.gif', 1),
 ('When you squad with the bois', '/images/valorant.gif', 2),
 ('So true', '/images/cod-meme.jpeg', 3),
+('Goals', '/images/forMatt.jpeg', 3),
 ('Rate it!', '/images/ratemyset.jpeg', 5),
-('Rate it!', '/images/bowser-dad.gif', 2),
+('Me as a dad.', '/images/bowser-dad.gif', 2),
 ('Saw this driving to work', '/images/LA-Thieves.jpeg', 1),
 ('Its coming back!!!!!!', '/images/g4tv.jpeg', 1);

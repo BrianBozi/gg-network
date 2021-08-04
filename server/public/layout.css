@@ -80,6 +80,7 @@ nav ul li {
     left: 0;
     z-index: 1;
     margin-bottom: 0;
+    padding: 0;
   }
 
   .mobileView a {

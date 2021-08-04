@@ -29,7 +29,7 @@ export default class Home extends React.Component {
       <h1 className="feed-header"> Feed</h1>
       <ul className="feed">
         {
-          posts.reverse().map(post => (
+          posts.map(post => (
         <li key={post.postId} className="posting">
           <a href={`#profile?userId=${post.userId}`} className="profileName"><h4 className="gamerTag">{post.gamerTag}</h4></a>
           <img src={post.photo} alt="" className="userPostImg"/>
