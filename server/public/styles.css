@@ -332,11 +332,17 @@ a {
 
   .searchBar {
     width: 99%;
+    top: 1rem;
   }
 
   .dropDown {
     width: 100%;
     height: 100%;
+  }
+
+  .search {
+    width: 100%;
+    height: 2.6rem;
   }
 
   /* dropDown width 100% */
