@@ -11,12 +11,6 @@ export default class Profiles extends React.Component {
     this.getPosts = this.getPosts.bind(this);
   }
 
-  // componentDidMount() {
-  //   fetch(`api/profile/${this.props.userId}`)
-  //     .then(res => res.json())
-  //     .then(posts => this.setState({ posts: posts }));
-  // }
-
   componentDidMount() {
     this.getPosts();
   }
