@@ -31,7 +31,7 @@ class Navbar extends React.Component {
         <nav className="navbar" >
           <h1 className="logo">GG👾</h1>
           {
-            this.state.toggle ? <SearchBar toggle={this.state.close} /> : false
+            this.state.toggle ? <SearchBar close={this.setToggle} /> : false
           }
 
           <ul className="desktopView">

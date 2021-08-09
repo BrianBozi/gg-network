@@ -78,7 +78,6 @@ app.get('/api/feed/search', (req, res, next) => {
   const sql = `
   select
       "gamerTag",
-
       "firstName",
       "userId"
       from "users";

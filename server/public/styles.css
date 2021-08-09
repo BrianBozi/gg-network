@@ -298,18 +298,32 @@ textarea {
 }
 
 .dropDown {
-  background-color: white;
+  background-color: #252526;
+  color: white;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 1.5rem;
+  width: 28rem;
+  padding: 0;
+  text-align: left;
+  font-family: 'VT323', monospace;
 
-  /* z-index: 1;
+}
+
+/* z-index: 1;
   }
-
-
-
 
   /* in the app component, the state listens
    */
+
+.search-li {
+  border-bottom: 1px solid black;
+  display: block;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
