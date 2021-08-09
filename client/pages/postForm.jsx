@@ -27,24 +27,12 @@ export default class NewPost extends React.Component {
       body: data
     })
       .then(result => {
-        // console.log('result:', result.json());
         event.target.reset();
       })
       .then(post => {
         window.location.href = '#';
       })
       .catch(err => console.error(err));
-    // fetch('/api/feed/post', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ description: this.state.description }),
-    //   headers: { 'Content-Type': 'application/json; charset=UTF-8' }
-    // })
-
-    // reciept of what was sent after the fetch
-    // .then(res => res.json())
-    // .then(post => {
-    //   window.location.href = '#';
-    // });
 
   }
 

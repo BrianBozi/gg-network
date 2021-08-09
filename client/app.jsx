@@ -12,6 +12,7 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash)
     };
+
   }
 
   componentDidMount() {
@@ -22,6 +23,19 @@ export default class App extends React.Component {
   }
 
   renderPage() {
+    const audio = new Audio('/easteregg/contra.mp3');
+    const pressed = [];
+    const code = 'ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba';
+
+    window.addEventListener('keyup', e => {
+      pressed.push(e.key);
+      pressed.splice(-code.length - 1, pressed.length - code.length);
+      if (pressed.join('').includes(code)) {
+        audio.play();
+
+      }
+    });
+
     const { route } = this.state;
     if (route.path === '') {
       return <Home />;
@@ -41,6 +55,7 @@ export default class App extends React.Component {
   render() {
     return (
     <>
+
     <Navbar />
     { this.renderPage() }
     </>

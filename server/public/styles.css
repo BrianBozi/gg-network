@@ -115,6 +115,15 @@ textarea {
   .userImage {
     width: 20%;
   }
+
+  .userAccFeed {
+    padding: 0;
+  }
+
+  .accPost {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
 }
 
 .editBtn {
@@ -124,14 +133,6 @@ textarea {
   left: 90%;
   margin-bottom: 0.5rem;
 }
-
-/* .overlay {
-  background: rgba(49,49,49,1);
-}
-
-.postImage {
-  width: 10%;
-} */
 
 
 /* modal */
@@ -172,7 +173,7 @@ textarea {
 }
 
 .modal-content {
-  background-color: #0d0d0d;
+  background-color: #090909;
   border: 1px solid grey;
   border-radius: 12px;
   margin: auto;
@@ -264,13 +265,75 @@ textarea {
     width: 100%;
     margin-left: 0;
   }
-
-  .accPost {
-    margin-right: 15%;
-  }
 }
 
 .profileName {
   text-decoration: none;
   color: white;
+}
+
+.search-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.searchBar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.search {
+  width: 450px;
+  height: 2rem;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.5rem;
+  z-index: 1;
+}
+
+.dropDown {
+  background-color: #252526;
+  color: white;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2.5rem;
+  width: 28rem;
+  padding: 0;
+  text-align: left;
+  font-family: 'VT323', monospace;
+}
+
+.search-li {
+  border-bottom: 1px solid black;
+  display: block;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+@media only screen and (max-width: 750px) {
+  .searchBar {
+    width: 99%;
+    top: 1rem;
+  }
+
+  .dropDown {
+    width: 100%;
+    height: 100%;
+  }
+
+  .search {
+    width: 100%;
+    height: 2.6rem;
+    top: 0;
+  }
 }

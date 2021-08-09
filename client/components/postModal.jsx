@@ -11,6 +11,7 @@ class Modal extends React.Component {
     this.delete = this.delete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.editPost = this.editPost.bind(this);
+    this.cancel = this.cancel.bind(this);
   }
 
   delete() {
@@ -29,7 +30,13 @@ class Modal extends React.Component {
       .then(res => {
         this.props.getPosts();
         this.props.close();
+        this.setState({ firstModal: true });
+
       });
+  }
+
+  cancel() {
+    this.setState({ firstModal: true });
   }
 
   handleChange(event) {
@@ -67,9 +74,7 @@ class Modal extends React.Component {
                 <img className="modal-photo" src={this.props.active.photo} alt="" />
               </div>
               <div className="col-half text-side">
-
                 <textarea name="description" className="modalEditTextArea" id="description" cols="30" rows="10" defaultValue={this.props.active.description} onChange={this.handleChange}></textarea>
-                {/* <h2>{this.props.active.description}</h2> */}
               </div>
             </div>
             <div>
@@ -78,7 +83,7 @@ class Modal extends React.Component {
               <a onClick={this.delete} className="delete">DELETE</a>
             </div>
             <div className="text-right modal-btns">
-              <button className="btn btn-red" onClick={this.props.close}>Cancel</button>
+              <button type="button" className="btn btn-red" onClick={this.props.close}>Cancel</button>
               <button type="submit" className="btn btn-green" >Accept</button>
             </div>
           </div>
@@ -87,13 +92,17 @@ class Modal extends React.Component {
       );
     } else {
       return (
-      <div className="modal" onClick={this.props.close}>
+      <div className="modal" onClick={() => {
+        this.props.close();
+        this.cancel();
+
+      }}>
         <div className="modal-content delete-modal" onClick={e => e.stopPropagation()}>
 
             <h2 className="deleteText">ARE YOU SURE YOU WANT TO DELETE</h2>
             <div className="row">
               <div className="col-half">
-            <button className="btn btn-red" onClick={this.props.close}>Cancel</button>
+            <button className="btn btn-red" onClick={ this.cancel}>Cancel</button>
               </div>
               <div className="col-half">
             <button className="btn btn-green" onClick={() => { this.delePost(); this.props.close(); }}>Accept</button>
