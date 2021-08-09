@@ -280,17 +280,42 @@ textarea {
   color: white;
 }
 
+.search-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  /* z-index: 2; */
+
+  /* left: 50%; */
+
+  /* transform: translateX(-50%); */
+
+  /* top: 1.5rem; */
+}
+
 .searchBar {
   position: fixed;
+
+  /* width: 100%;
+  height: 100%; */
   left: 50%;
   transform: translateX(-50%);
-  top: 1.5rem;
+
+  /* top: 1.5rem; */
   z-index: 1;
+
+  /* border: 1px red solid; */
 }
 
 .search {
   width: 450px;
   height: 2rem;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1.5rem;
+  z-index: 1;
 }
 
 .search-button {
@@ -301,9 +326,10 @@ textarea {
   background-color: #252526;
   color: white;
   position: fixed;
+  z-index: 1;
   left: 50%;
   transform: translateX(-50%);
-  top: 1.5rem;
+  top: 2.5rem;
   width: 28rem;
   padding: 0;
   text-align: left;
@@ -343,6 +369,7 @@ a {
   .search {
     width: 100%;
     height: 2.6rem;
+    top: 0;
   }
 
   /* dropDown width 100% */

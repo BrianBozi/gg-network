@@ -1,11 +1,6 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-// fetch to server db return userID and Gamertag with profilepic
-// store in state
-// handlechange on search box listening to the change in typing
-// save the state of post to an const
-// do a map and filter of the state
   constructor(props) {
     super(props);
     this.state = {
@@ -30,20 +25,15 @@ class SearchBar extends React.Component {
   render() {
     const { filter, data } = this.state;
     const dataSearch = data.filter(item => {
-      // console.log('this is the gamer tag', item.gamerTag);
-      // const notFound = [
-      //   { gamerTag: 'unknown user' }
-      // ];
       const id = item.userId.toString();
       if (item.gamerTag.includes(filter) || id === filter) {
         return item;
       }
-
       return false;
     });
     return (
     <>
-  <form action="" className="searchBar">
+  <form action="" className="searchBar" >
     <input type="text" className="search" value={filter} onChange={this.handleChange}/>
   </form>
   <ul className="dropDown">
@@ -60,6 +50,7 @@ class SearchBar extends React.Component {
         )
     }
   </ul>
+        <div className="search-modal" onClick={this.props.close}></div>
 
   </>
     );
