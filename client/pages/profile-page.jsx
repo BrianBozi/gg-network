@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../components/postModal';
+import Modal from '../components/post-modal';
 
 export default class Profile extends React.Component {
   constructor(props) {
