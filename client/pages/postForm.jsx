@@ -4,18 +4,23 @@ export default class NewPost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: ''
+      description: '',
+      error: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.errorPopUp = this.errorPopUp.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       description: event.target.value
     });
+  }
+
+  errorPopUp(event) {
+    this.setState({ error: true });
   }
 
   handleSubmit(event) {
@@ -26,8 +31,14 @@ export default class NewPost extends React.Component {
       method: 'POST',
       body: data
     })
-      .then(result => {
+      .then(response => {
         event.target.reset();
+        if (!response.ok) {
+          throw new Error('Oh no, something went wrong');
+          // eslint-disable-next-line no-unreachable
+          this.errorPopUp();
+        }
+        return response.json();
       })
       .then(post => {
         window.location.href = '#';
@@ -44,7 +55,7 @@ export default class NewPost extends React.Component {
         <div className="fileUpload" name="photo">
           <input type="file" name="image"/>
         </div>
-          <textarea required name="description" id="description" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>
+          {(this.state.error) ? <h1>Oh no something went wrong! Please refresh the page..</h1> : <textarea required name="description" id="description" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>}
         <div>
           <div className="row">
           <div className="col-half">

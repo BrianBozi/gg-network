@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '../components/spinner';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -28,8 +29,9 @@ export default class Home extends React.Component {
       <>
       <h1 className="feed-header"> Feed</h1>
       <ul className="feed">
-        {
-          posts.map(post => (
+        {(!this.state.posts.length)
+          ? <Spinner />
+          : posts.map(post => (
         <li key={post.postId} className="posting">
           <a href={`#profile?userId=${post.userId}`} className="profileName"><h4 className="gamerTag">{post.gamerTag}</h4></a>
           <img src={post.photo} alt="" className="userPostImg"/>

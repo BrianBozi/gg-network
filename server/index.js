@@ -116,10 +116,11 @@ app.get('/api/feed/profile', (req, res, next) => {
 app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
   const { description } = req.body;
   if (!description) {
-    res.status(400).json({
-      error: 'description needs to be filled out'
-    });
-    res.json({ description: 'this is working' });
+    throw new ClientError(400, 'description is required');
+    // res.status(400).json({
+    //   error: 'description needs to be filled out'
+    // });
+    // res.json({ description: 'this is working' });
   }
   const sql = `
   insert into "posts" ("description", "photo", "userId")
@@ -127,12 +128,13 @@ app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
   returning *
   `;
   const params = [description, `/images/${req.file.filename}`];
+
   db.query(sql, params)
     .then(result => {
       const [post] = result.rows;
       res.json(post);
     })
-    .catch(next());
+    .catch(err => next(err));
 
 });
 
