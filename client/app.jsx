@@ -12,7 +12,6 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash)
     };
-
   }
 
   componentDidMount() {

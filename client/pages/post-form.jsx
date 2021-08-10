@@ -7,7 +7,6 @@ export default class NewPost extends React.Component {
       description: '',
       error: false
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.errorPopUp = this.errorPopUp.bind(this);

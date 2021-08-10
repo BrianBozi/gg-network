@@ -1,5 +1,4 @@
 require('dotenv/config');
-// const { parse } = require('dotenv');
 const express = require('express');
 const pg = require('pg');
 const jsonMiddleWare = express.json();
@@ -117,10 +116,6 @@ app.post('/api/feed/post', uploadsMiddleware, (req, res, next) => {
   const { description } = req.body;
   if (!description) {
     throw new ClientError(400, 'description is required');
-    // res.status(400).json({
-    //   error: 'description needs to be filled out'
-    // });
-    // res.json({ description: 'this is working' });
   }
   const sql = `
   insert into "posts" ("description", "photo", "userId")

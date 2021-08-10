@@ -4,7 +4,6 @@ import SearchBar from './search';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       toggle: false
     };

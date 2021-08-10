@@ -98,7 +98,6 @@ class Modal extends React.Component {
 
       }}>
         <div className="modal-content delete-modal" onClick={e => e.stopPropagation()}>
-
             <h2 className="deleteText">ARE YOU SURE YOU WANT TO DELETE</h2>
             <div className="row">
               <div className="col-half">
@@ -107,9 +106,7 @@ class Modal extends React.Component {
               <div className="col-half">
             <button className="btn btn-green" onClick={() => { this.delePost(); this.props.close(); }}>Accept</button>
               </div>
-
             </div>
-
         </div>
       </div>);
     }

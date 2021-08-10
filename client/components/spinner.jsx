@@ -9,9 +9,7 @@ export default class Spinner extends React.Component {
   }
 
   render() {
-
     return (
-
         <div id="loader">
           <div className="ls-particles ls-part-1"></div>
           <div className="ls-particles ls-part-2"></div>
@@ -21,7 +19,6 @@ export default class Spinner extends React.Component {
           <div className="lightsaber ls-left ls-green"></div>
           <div className="lightsaber ls-right ls-red"></div>
         </div>
-
     );
   }
 }
