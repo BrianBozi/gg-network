@@ -27,6 +27,9 @@ Try it live at <https://gg-network.herokuapp.com/#>
 ### Mobile App
 ![Kapture 2021-08-11 at 16 25 10](https://user-images.githubusercontent.com/70422100/129116264-5dacd38a-5fce-4bf9-ab28-96e323adb924.gif)
 
+### Desktop App
+![gg-desktop-view](https://user-images.githubusercontent.com/70422100/129116329-ecdf4cba-7436-4a05-9d59-4ee63c15508b.gif)
+
 
 ## Stretch Features
 - Liking user's post.
