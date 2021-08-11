@@ -1,3 +1,64 @@
-# final-project
+# GG-Network
 
-A full stack JavaScript solo project.
+A web application for gamers who want to connect to other gamers.
+
+Ready up! GG is a social networking app where gamers can post epic gaming moments, news, posts, etc.. This a space just for gaming and gaming related themes. 
+
+## Why?
+Gaming has always been part my life and played (no pun intended)  a hugmoinus role in it aswell. While there are other social networks, I realized that many of them have become very crowded with influencers, and ads. This gave me the idea of creeating a social network for me and my friends where we wopuldnt get bombarded with a bunch of random distractions. 
+
+## Technologies Used
+- React.js
+- Node.js
+- Express.js
+- PostgreSQL
+- JSX
+- Multer
+- Babel
+- Webpack
+- pgweb
+- CSS3
+- JavaScript (ES6) 
+
+## Live Demo
+Try it live at <https://gg-network.herokuapp.com/#>
+
+## Preview 
+Mobile App
+
+
+Desktop App
+
+
+## Stretch Features
+- Liking user's post.
+- Following other Users.
+- Custom sign in for new users.
+- Messaging with users that are also online using the app.
+
+## System Requirements
+If you want to just view the app, please click the link above. 
+If you would like to run it on your own machine please follow the steps.
+- VS Code or any similar IDE that supports JavaScript (ES6)
+- Node.js 14 or higher
+- NPM 7 or higher
+- Postgresql 12 or higher
+
+## Getting started
+1. Clone the repository.
+```
+git clone git@github.com:BrianBozi/gg-network.git
+cd gg-network
+```
+2. Install the dependencies with NPM. (the installation time may vary depending on your internet sppeds) 
+```
+npm install
+```
+3. Import the example database into PostgreSQL.
+```
+npm run db:import
+```
+4. Start the app! Once the app is up and running you can visit it at htttp://localhost:3000 in your browser.
+```
+npm run dev
+```
