@@ -24,11 +24,8 @@ Gaming has always been part my life and played (no pun intended)  a hugmoinus ro
 Try it live at <https://gg-network.herokuapp.com/#>
 
 ## Preview 
-Mobile App
-
-
-Desktop App
-![gg-desktop-view](https://user-images.githubusercontent.com/70422100/129115957-d287e9bb-e238-4118-86f1-4e75030cbd66.gif)
+### Mobile App
+![Kapture 2021-08-11 at 16 25 10](https://user-images.githubusercontent.com/70422100/129116264-5dacd38a-5fce-4bf9-ab28-96e323adb924.gif)
 
 
 ## Stretch Features
