@@ -38,8 +38,9 @@ Try it live at <https://gg-network.herokuapp.com/#>
 - Messaging with other user who are using the app.
 
 ## System Requirements
-If you want to just view the app, please click the link above. 
-If you would like to run it on your own machine please follow the steps.
+If you want to just view the app, please click the link above ⬆️. 
+
+If you would like to run it on your own machine please follow these steps.
 - VS Code or any similar IDE that supports JavaScript (ES6)
 - Node.js 14 or higher
 - NPM 7 or higher
