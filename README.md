@@ -1,11 +1,11 @@
-# GG-Network
+# *GG-Network* 👾
 
-A web application for gamers who want to connect to other gamers.
 
-Ready up! GG is a social networking app where gamers can post epic gaming moments, news, posts, etc.. This a space just for gaming and gaming related themes. 
+Ready up! GG is a social networking app where gamers can post epic gaming moments, news, posts, etc.. This a space just for gaming and gaming related themes. Simply put *a web application for gamers who want to connect to other gamers*.
+
 
 ## Why?
-Gaming has always been part my life and played (no pun intended)  a hugmoinus role in it aswell. While there are other social networks, I realized that many of them have become very crowded with influencers, and ads. This gave me the idea of creeating a social network for me and my friends where we wopuldnt get bombarded with a bunch of random distractions. 
+Gaming has always been part of my life and played (no pun intended)  a humongous role in it. While there are other social networks, I realized that many of them have become very crowded with influencers and ads. This gave me the idea of creating a social network for me and my friends where we wouldnt get bombarded with a bunch of random distractions.
 
 ## Technologies Used
 - React.js
@@ -35,7 +35,7 @@ Try it live at <https://gg-network.herokuapp.com/#>
 - Liking user's post.
 - Following other Users.
 - Custom sign in for new users.
-- Messaging with users that are also online using the app.
+- Messaging with other user who are using the app.
 
 ## System Requirements
 If you want to just view the app, please click the link above. 
