@@ -28,6 +28,7 @@ Mobile App
 
 
 Desktop App
+![gg-desktop-view](https://user-images.githubusercontent.com/70422100/129115957-d287e9bb-e238-4118-86f1-4e75030cbd66.gif)
 
 
 ## Stretch Features
