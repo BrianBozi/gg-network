@@ -1,9 +1,9 @@
 import React from 'react';
 import Home from './pages/home';
-import Navbar from './components/navBar';
-import Profile from './pages/profilePage';
+import Navbar from './components/nav-bar';
+import Profile from './pages/profile-page';
 import Profiles from './pages/profiles';
-import PostForm from './pages/postForm';
+import PostForm from './pages/post-form';
 import parseRoute from './lib/parse-route.js';
 
 export default class App extends React.Component {
@@ -12,7 +12,6 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash)
     };
-
   }
 
   componentDidMount() {

@@ -33,10 +33,10 @@ class SearchBar extends React.Component {
     });
     return (
     <>
-  <form action="" className="searchBar" >
+  <form action="" className="search-bar" >
     <input type="text" className="search" value={filter} onChange={this.handleChange}/>
   </form>
-  <ul className="dropDown">
+  <ul className="drop-down">
     {dataSearch.length
       ? (
           dataSearch.map(item => (

@@ -32,21 +32,21 @@ export default class Profiles extends React.Component {
 
     return (
     <div>
-        <div className="profileContainer">
+        <div className="profile-container">
           <div className="user">
             <div className="row">
-              <img src="images/boruto.jpeg" alt="" className="userImage" />
+              <img src="images/boruto.jpeg" alt="" className="user-image" />
             </div>
-            <div className="row userName">
+            <div className="row user-name">
               <h2>{(!this.state.posts.length) ? 'Loading...' : this.state.posts[0].gamerTag}</h2>
             </div>
-            <ul className="userAccFeed">
+            <ul className="user-acc-feed">
               {
                 posts.reverse().map(post => (
-                  <li key={post.postId} className="accPost" id={post.postId} onClick={this.clickedOn} >
+                  <li key={post.postId} className="acc-post" id={post.postId} onClick={this.clickedOn} >
                     <div className="row" >
                     </div>
-                    <img src={post.photo} alt="" className="userPostImg" onClick={() => this.setActive(post)} id={post.postId} />
+                    <img src={post.photo} alt="" className="user-post-img" onClick={() => this.setActive(post)} id={post.postId} />
                     <p className="description">{post.description}  {post.postId}</p>
                   </li>
                 ))

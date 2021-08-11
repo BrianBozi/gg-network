@@ -7,7 +7,6 @@ export default class NewPost extends React.Component {
       description: '',
       error: false
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.errorPopUp = this.errorPopUp.bind(this);
@@ -50,9 +49,9 @@ export default class NewPost extends React.Component {
   render() {
     return (
       <div className="form-container">
-        <h3 className="newPostHeader">New Post</h3>
+        <h3 className="new-post-header">New Post</h3>
       <form action="" onSubmit={this.handleSubmit}>
-        <div className="fileUpload" name="photo">
+        <div className="file-upload" name="photo">
           <input type="file" name="image"/>
         </div>
           {(this.state.error) ? <h1>Oh no something went wrong! Please refresh the page..</h1> : <textarea required name="description" id="description" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>}
