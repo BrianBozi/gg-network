@@ -34,7 +34,7 @@ export default class Home extends React.Component {
           : posts.map(post => (
         <li key={post.postId} className="posting">
           <a href={`#profile?userId=${post.userId}`} className="profileName"><h4 className="gamerTag">{post.gamerTag}</h4></a>
-          <img src={post.photo} alt="" className="userPostImg"/>
+          <img src={post.photo} alt="" className="user-post-img"/>
           <h4 className="description">{post.gamerTag}: {post.description}</h4>
         </li>
           ))

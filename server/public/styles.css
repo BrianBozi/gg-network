@@ -3,6 +3,150 @@ a {
   cursor: pointer;
 }
 
+/* navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  height: 4.5rem;
+  display: flex;
+  background-color: #252526;
+  overflow: hidden;
+  margin-bottom: 1000px;
+  border-bottom: 1px solid rgb(87, 86, 86);
+}
+
+.logo {
+  padding-left: 2rem;
+  position: relative;
+  bottom: 3.6rem;
+  font-size: 4rem;
+  color: white;
+  font-family: 'VT323', monospace;
+}
+
+ul {
+  flex: 1;
+  text-align: right;
+}
+
+li {
+  padding: 10px 10px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+.post-btn {
+  position: relative;
+  top: 1.6rem;
+  right: 1rem;
+  color: white;
+  font-size: 2rem;
+}
+
+.desktop-view {
+  position: relative;
+  right: 1.5rem;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+}
+
+.mobile-view {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    color: white;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-around;
+    display: flex;
+    background-color: black;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .mobile-view a {
+    color: white;
+    width: 10px;
+    font-size: 2rem;
+    padding: 10px 25px;
+  }
+
+  .post-btn {
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+  }
+}
+
+/* feed */
+.feed-header {
+  padding-top: 3rem;
+  color: white;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+}
+
+.feed {
+  margin-bottom: 5rem;
+  padding: 0;
+  color: white;
+  font-family: 'VT323', monospace;
+  justify-content: center;
+}
+
+.posting {
+  border: 1px solid #4f4f4f;
+  width: 30%;
+  background-color: #252526;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gamerTag,
+.description {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.gamerTag {
+  margin: 0.5rem 0;
+}
+
+.description {
+  margin-top: 1rem;
+  color: white;
+  font-family: 'VT323', monospace;
+}
+
+@media only screen and (max-width: 800px) {
+  .posting {
+    width: 95%;
+  }
+}
+
 /* form */
 .row {
   display: flex;
@@ -34,7 +178,7 @@ textarea {
   width: 80%;
 }
 
-.newPostHeader {
+.new-post-header {
   color: white;
   font-family: 'VT323', monospace;
   font-size: 4rem;
@@ -58,7 +202,7 @@ textarea {
   }
 }
 
-.fileUpload {
+.file-upload {
   text-align: left;
   position: relative;
   left: 5.5rem;
@@ -67,12 +211,12 @@ textarea {
 }
 
 /* feedPhoto */
-.userPostImg {
+.user-post-img {
   width: 100%;
 }
 
 /* user profile */
-.profileContainer {
+.profile-container {
   margin-top: 6rem;
   width: 80%;
   position: relative;
@@ -80,7 +224,7 @@ textarea {
   transform: translateX(-50%);
 }
 
-.userImage {
+.user-image {
   border: 1px grey solid;
   border-radius: 50%;
   width: 10%;
@@ -89,56 +233,50 @@ textarea {
   margin-right: auto;
 }
 
-.userName {
+.user-name {
   color: white;
   font-family: 'VT323', monospace;
   border-bottom: 1px solid grey;
   justify-content: center;
 }
 
-.userAccFeed {
+.user-acc-feed {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.accPost {
+.acc-post {
   margin: 2rem 0.5rem;
   border: 1px solid grey;
   background-color: #252526;
   border-radius: 7px;
-  width: 333px;
-}
-
-.description {
-  color: white;
-  font-family: 'VT323', monospace;
+  width: 20.8rem;
 }
 
 @media only screen and (max-width: 800px) {
-  .userImage {
+  .user-image {
     width: 20%;
   }
 
-  .userAccFeed {
+  .user-acc-feed {
     padding: 0;
   }
 
-  .accPost {
+  .acc-post {
     margin: 0;
     margin-bottom: 2rem;
   }
 }
 
-.editBtn {
+.edit-btn {
   color: white;
   font-size: 2rem;
   position: relative;
   left: 90%;
   margin-bottom: 0.5rem;
 }
-
 
 /* modal */
 .container {
@@ -180,7 +318,7 @@ textarea {
 .modal-content {
   background-color: #090909;
   border: 1px solid grey;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   margin: auto;
   padding: 1.5rem;
   width: 50%;
@@ -196,7 +334,7 @@ textarea {
 }
 
 .modal-photo {
-  width: 350px;
+  width: 21.8rem;
   margin-bottom: 2rem;
 }
 
@@ -209,7 +347,7 @@ textarea {
 .text-side {
   border: 1px solid grey;
   border-radius: 12px;
-  padding: 20px;
+  padding: 1.25rem;
   color: white;
   font-family: 'VT323', monospace;
 }
@@ -272,7 +410,8 @@ textarea {
   }
 }
 
-.profileName {
+/* search ß */
+.profile-name {
   text-decoration: none;
   color: white;
 }
@@ -283,7 +422,7 @@ textarea {
   height: 100%;
 }
 
-.searchBar {
+.search-bar {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -291,7 +430,7 @@ textarea {
 }
 
 .search {
-  width: 450px;
+  width: 28.13rem;
   height: 2rem;
   position: fixed;
   left: 50%;
@@ -300,7 +439,7 @@ textarea {
   z-index: 1;
 }
 
-.dropDown {
+.drop-down {
   background-color: #252526;
   color: white;
   position: fixed;
@@ -318,20 +457,20 @@ textarea {
   border-bottom: 1px solid black;
   display: block;
   text-decoration: none;
+  font-size: 1rem;
 }
 
-a {
-  text-decoration: none;
-  color: white;
+.search-li > a {
+  font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 750px) {
-  .searchBar {
+  .search-bar {
     width: 99%;
     top: 1rem;
   }
 
-  .dropDown {
+  .drop-down {
     width: 100%;
     height: 100%;
   }
@@ -343,9 +482,7 @@ a {
   }
 }
 
-
 /* spinner */
-
 #loader {
   width: 80px;
   height: 40px;
