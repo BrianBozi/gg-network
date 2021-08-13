@@ -62,9 +62,11 @@ export default class Profile extends React.Component {
           <ul className="user-acc-feed">
             {
               posts.map(post => (
-                <li key={post.postId} className="acc-post" id={post.postId} onClick={this.clickedOn} >
+                <li key={post.postId} className="acc-post" id={post.postId} >
                   <div className="row" >
-                    <span className="iconify edit-btn" data-icon="akar-icons:edit" data-inline="false" id={post.postId} ></span>
+                    <a className="edit-btn" onClick={() => this.setActive(post)} >
+                      <span className="iconify" data-icon="akar-icons:edit" data-inline="false" id={post.postId} ></span>
+                    </a>
                     </div>
                   <img src={post.photo} alt="" className="user-post-img" onClick={() => this.setActive(post)} id={post.postId} />
                   <p className="description">{post.description}</p>
