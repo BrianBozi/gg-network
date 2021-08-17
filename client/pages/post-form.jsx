@@ -37,7 +37,9 @@ export default class NewPost extends React.Component {
           // eslint-disable-next-line no-unreachable
           this.errorPopUp();
         }
+        window.location.href = '#';
         return response.json();
+
       })
       .then(post => {
         window.location.href = '#';
@@ -52,7 +54,8 @@ export default class NewPost extends React.Component {
         <h3 className="new-post-header">New Post</h3>
       <form action="" onSubmit={this.handleSubmit}>
         <div className="file-upload" name="photo">
-          <input type="file" name="image"/>
+          <label className="button" htmlFor="upload">Upload File</label>
+          <input type="file" name="image" className="input-file" id="upload" />
         </div>
           {(this.state.error) ? <h1>Oh no something went wrong! Please refresh the page..</h1> : <textarea required name="description" id="description" cols="30" rows="10" onChange={this.handleChange} placeholder="write your post here"></textarea>}
         <div>
@@ -61,7 +64,7 @@ export default class NewPost extends React.Component {
           <a className="cancel" href="#">CANCEL</a>
           </div>
           <div className="col-half">
-          <button type="submit" className="submit">SUBMIT</button>
+          <button type="submit" className="submit" >SUBMIT</button>
           </div>
           </div>
         </div>

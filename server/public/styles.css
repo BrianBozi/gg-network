@@ -158,21 +158,46 @@ a {
   flex-basis: 50%;
 }
 
+input[type="file"] {
+  position: absolute;
+  z-index: -1;
+  top: 0.5rem;
+  left: 5px;
+  font-size: 17px;
+  color: #b8b8b8;
+  width: 70%;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #8ebf42;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
 .submit {
   position: relative;
   bottom: 1.3rem;
   color: white;
+  font-family: 'VT323', monospace;
   background-color: rgb(0, 182, 0);
   padding: 1rem 2rem;
   border-radius: 12px;
 }
 
 .cancel {
-  text-decoration: none;
+  /* text-decoration: none; */
+  font-family: 'VT323', monospace;
   color: white;
   background-color: red;
   padding: 1rem 2rem;
   border-radius: 12px;
+  font-size: 1rem;
 }
 
 textarea {
@@ -189,7 +214,8 @@ textarea {
   position: relative;
   top: 6rem;
   text-align: center;
-  margin-top: 2rem;
+
+  /* margin-top: 2rem; */
   border: 1px solid grey;
   border-radius: 12px;
   width: 900px;
@@ -206,7 +232,7 @@ textarea {
 .file-upload {
   text-align: left;
   position: relative;
-  left: 5.5rem;
+  left: 10%;
   margin-bottom: 2rem;
   color: white;
 }
