@@ -37,9 +37,7 @@ export default class NewPost extends React.Component {
           // eslint-disable-next-line no-unreachable
           this.errorPopUp();
         }
-        window.location.href = '#';
         return response.json();
-
       })
       .then(post => {
         window.location.href = '#';
@@ -64,7 +62,7 @@ export default class NewPost extends React.Component {
           <a className="cancel" href="#">CANCEL</a>
           </div>
           <div className="col-half">
-          <button type="submit" className="submit" >SUBMIT</button>
+          <button type="submit" className="submit">SUBMIT</button>
           </div>
           </div>
         </div>
